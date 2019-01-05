@@ -6,17 +6,24 @@ class Table extends React.Component {
     constructor(props) {
         super(props);
         this.onViewClick = this.onViewClick.bind(this)
+        this.onEditClick = this.onEditClick.bind(this)
     }
     onViewClick(id) {
        // this.props.history.push('/view/' + id)
         this.props.history.push(`/view/${id}`)
 
     }
+    
+    onEditClick(id) {
+       // this.props.history.push('/view/' + id)
+        this.props.history.push(`/form`)
+
+    }
     render() {
         return (
             <table>
                 <Thead values = {this.props.headers}/>
-                <Tbody values = {this.props.values} onViewClick={this.onViewClick}/>
+                <Tbody values = {this.props.values} onViewClick={this.onViewClick} onEditClick={this.onEditClick}/>
             </table>
         )
     }
